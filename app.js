@@ -1,6 +1,6 @@
+// search field 
 const searchBook = () => {
     const searchText = document.getElementById('search-field').value;
-    // display spinner
     toggleSpinner('block');
     toggleSearchResult('none');
     toggleSearchResultsNumber('none');
@@ -8,7 +8,7 @@ const searchBook = () => {
     document.getElementById('search-field').value = '';
 }
 
-
+// toggle functions
 const toggleSpinner = displayStyle => {
     document.getElementById('spinner').style.display = displayStyle;
 }
@@ -20,7 +20,7 @@ const toggleSearchResultsNumber = displaySearchNumbers => {
 }
 
 
-
+// fetching
 const loadBooks = searchText => {
     const url = `https://openlibrary.org/search.json?q=${searchText}`;
     fetch(url)
@@ -28,6 +28,7 @@ const loadBooks = searchText => {
         .then(data => displayBooks(data))
 }
 
+// loop and create search results
 // I don't khonw why grid columns isn't showing 
 const bookNames = books => {
     const container = document.getElementById('books-results');
@@ -49,6 +50,7 @@ const bookNames = books => {
     });
 }
 
+// result numbers
 const searchResultsNumber = results => {
     const resultsNumber = document.getElementById('results-number');
     resultsNumber.textContent = ''
@@ -58,8 +60,8 @@ const searchResultsNumber = results => {
 }
 
 
+// display function
 const displayBooks = books => {
-    // const bookDocs = books.docs;
     bookNames(books.docs);
     searchResultsNumber(books.numFound)
     toggleSpinner('none');
