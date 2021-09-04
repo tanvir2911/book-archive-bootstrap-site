@@ -1,3 +1,6 @@
+// some info for you in the below comment
+
+
 // search field 
 const searchBook = () => {
     const searchText = document.getElementById('search-field').value;
@@ -29,7 +32,8 @@ const loadBooks = searchText => {
 }
 
 // loop and create search results
-// I don't khonw why grid columns isn't showing 
+// I don't khonw why grid columns doesn't work when i try to show more than one item in a row. That's why I removed the grid style, but i pushed it in my previous commit so that you can review it. I will be glad if you give me the feedback of my previous commit why didn't it worked. I wasted my two days trying to resolve it... 
+// please..
 const bookNames = books => {
     const container = document.getElementById('books-results');
     container.textContent = '';
